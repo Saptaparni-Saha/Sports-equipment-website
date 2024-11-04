@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportGear Pro - Your Ultimate Sports Equipment Store</title>
+    <style>
+        
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50; 
+    background-color: #ecf0f1; 
+}
+
+header {
+    background-color: #3498db; 
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+nav ul li{
+    margin: 0.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('backcover.avif');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img {
+    height: auto;
+    width: 80px;
+    margin-bottom: 0.5rem;
+    border-radius: 50px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+}
+.cta-button {
+    display: inline-block;
+    background-color: #e74c3c; 
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+section {
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #3498db; 
+}
+
+.about {
+    background-color: white; 
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: ;
+            height:200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+
+.product-rating {
+    color: #f39c12; 
+    font-size: 1.2rem;
+}
+
+.reviews {
+    background-color: white; 
+}
+
+.review-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    background-color: white; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 1rem;
+}
+
+.delivery {
+    background-color: #e74c3c; 
+    color: white;
+    text-align: center;
+}
+
+.social-links {
+    background-color: #3498db; 
+    color: white;
+    text-align: center;
+}
+
+.social-links a {
+    color: white;
+    font-size: 2rem;
+    margin: 0 1rem;
+}
+
+.social-links a:hover {
+    color: #f39c12;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+}
+.add-to-cart, .wishlist {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+
+        .add-to-cart:hover {
+            background-color: #1e8449;
+        }
+
+        .wishlist {
+            background-color: #e74c3c;
+            margin-left: 0.5rem;
+        }
+
+        .wishlist:hover {
+            background-color: #c0392b;
+        }
+
+.dropdown {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .dropbtn {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3498db;
+        }
+        
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo for sports equipment selling website.png" alt="logo" class="logo img">
+            <h1>Elite Sport Equip</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="dropdown">
+            <button class="dropbtn">|||</button>
+            <div class="dropdown-content">
+                <a href="cart.html">My Cart</a>
+                <a href="wishlist.html">My Wishlist</a>
+                <a href="order.html">My Orders</a>
+            </div>
+        </div>
+    </header>    
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Elite Sport Equip</h1>
+                <p>Your one-stop shop for premium sports equipment</p>
+                <a href="#products" class="cta-button">Shop Now</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section-title">About Us</h2>
+            <p>At SportGear Pro, we're passionate about providing top-quality sports equipment to athletes of all levels. With over 20 years of experience in the industry, we understand the importance of reliable gear in achieving peak performance.</p>
+            <p>Our team of experts carefully selects each product in our inventory, ensuring that we offer only the best to our customers. From professional-grade equipment to affordable options for beginners, we have something for everyone.</p>
+        </section>
+
+        <section id="products">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://img.freepik.com/premium-photo/basketball-b…ent-background_1029469-235293.jpg?semt=ais_hybrid" alt="Premium Basketball" >
+                    <div class="product-info">
+                        <h3>Premium Basketball</h3>
+                        <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</p>
+                        <p data-price="2999">₹2,999</p>
+                        <button onclick="showPopup('Premium Basketball', 2999)">Quick View</button>
+                        
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Premium Basketball')">Add to cart</button>
+                    <button class="wishlist" onclick="addToWishlist('Premium Basketball')">wishlist</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.sourceflow.co.uk/woydyrnv5b2v444kq6c1gy8k57jg" alt="Professional Football">
+                    <div class="product-info">
+                        <h3>Professional Football</h3>
+                        <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9733;5.0</p>
+                        <p data-price="1999">₹1,999</p>
+                        <button onclick="showPopup('Professional Football', 1999)">Quick View</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Premium Fooball')">Add to cart</button>
+                    <button class="wishlist" onclick="addToWishlist('Premium Football')">wishlist</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.adultsplaysports.com/storage/Yonex-100-head-closeup.webp" alt="Advanced Tennis Racket">
+                    <div class="product-info">
+                        <h3>Advanced Tennis Racket</h3>
+                        <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9734; 4.2</p>
+                        <p data-price="7999">₹7,999</p>
+                        <button onclick="showPopup('Advanced Tennis Racket', 7999)">Quick View</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Advanced Tennis Racket')">Add to cart</button>
+                    <button class="wishlist" onclick="addToWishlist('Advanced Tennis Racket')">wishlist</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/515AUttBwlL._AC_UF894,1000_QL80_.jpg">
+                    <div class="product-info">
+                        <h3>Premium Cricket Bat</h3>
+                        <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9734; 4.8</p>
+                        <p data-price="1499">₹1,499</p>
+                        <button onclick="showPopup('Premium Cricket Bat', 1499)">Quick View</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Premium Cricket Bat')">Add to cart</button>
+                    <button class="wishlist" onclick="addToWishlist('Premium Cricket Bat')">wishlist</button>
+
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/51m9qqzGurL._AC_UF894,1000_QL80_.jpg">
+                    <div class="product-info">
+                        <h3>Premium Cricket kit</h3>
+                        <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9734;4.0</p>
+                        <p data-price="5000">₹5000</p>
+                        <button onclick="showPopup('Premium Cricket kit', 5000)">Quick View</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Premium Cricket kit')">Add to cart</button>
+                    <button class="wishlist" onclick="addToWishlist('Premium Cricket Kit')">wishlist</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.badmintonavenue.com/cdn/shop/files/BRS-LTD-PRO1.webp?v=1715240552&width=1200
+                    ">
+                    <div class="product-info">
+                        <h3>Premium Badminton Racket</h3>
+                        <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9733;5.0</p>
+                        <p data-price="1500">₹1,499</p>
+                        <button onclick="showPopup('Premium Badminton Racket')">Quick View</button>
+                        
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Premium Badminton Racket',1499)">Add to cart</button>
+                    <button class="wishlist" onclick="addToWishlist('Premium Badminton Racket')">wishlist</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/51yw62mjWqL.jpg
+                    ">
+                    <div class="product-info">
+                        <h3>Premium Hockey Stick</h3>
+                        <p class="product-rating">&#9733;&#9733;&#9733;&#9734;&#9734;3.8</p>
+                        <p data-price="3500">₹3500</p>
+                        <button onclick="showPopup('Premium Hockey Stick',3500)">Quick View</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Premium Hockey Stick',)">Add to cart</button>
+                    <button class="wishlist" onclick="addToWishlist('Premium Hockey Stick')">wishlist</button>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="reviews" class="reviews">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="review-card">
+                <h3>Amit Patel</h3>
+                <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9733;5.0</p>
+                <p>"I bought the Premium Basketball, and it's fantastic! The grip is perfect, and it performs great on both indoor and outdoor courts. Highly recommended!"</p>
+            </div>
+            <div class="review-card">
+                <h3>Priya Sharma</h3>
+                <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9734;4.5</p>
+                <p>"The Advanced Tennis Racket is a game-changer. It's lightweight yet powerful, and has significantly improved my serve. Great product!"</p>
+            </div>
+            <div class="review-card">
+                <h3>Rahul Verma</h3>
+                <p class="product-rating">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</p>
+                <p>"Excellent customer service! I had a question about the Professional Football, and the team was quick to respond and very helpful. The ball itself is top-notch quality."</p>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2 class="section-title">SportGear Pro Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://www.shutterstock.com/image-photo/different-sports-equipment-on-green-260nw-2463190611.jpg" alt="Caring for Your Sports Equipment">
+                    <div class="blog-content">
+                        <h3>How to Care for Your Sports Equipment</h3>
+                        <p>Proper maintenance of your sports gear can significantly extend its lifespan and ensure optimal performance. Here are some tips to keep your equipment in top shape:</p>
+                        <ul>
+                            <li>Clean your equipment after each use</li>
+                            <li>Store in a cool, dry place</li>
+                            <li>Regularly inspect for wear and tear</li>
+                            <li>Follow manufacturer's care instructions</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="sports.png" alt="Choosing the Right Equipment">
+                    <div class="blog-content">
+                        <h3>Choosing the Right Equipment for Your Sport</h3>
+                        <p>Selecting the appropriate gear can make a significant difference in your performance and enjoyment of the sport. Consider these factors when choosing equipment:</p>
+                        <ul>
+                            <li>Your skill level</li>
+                            <li>Frequency of play</li>
+                            <li>Budget</li>
+                            <li>Personal preferences (e.g., weight, material)</li>
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="delivery">
+            <h2 class="section-title">Easy Home Delivery</h2>
+            <p>We offer convenient and fast home delivery across India. Order before 2 PM for same-day dispatch!</p>
+            <ul>
+                <li>Free shipping on orders over ₹2,000</li>
+                <li>Secure packaging to ensure your equipment arrives in perfect condition</li>
+                <li>Track your order in real-time</li>
+                <li>Easy returns and exchanges</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="social-links">
+            <h2>Connect With Us</h2>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                Facebook
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                Instagram
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                x
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        </section>
+    </main>
+
+    <section></section>
+
+    <div class="popup" id="popup">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+        <p id="popup-price"></p>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+        function formatPrice(price) {
+            return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(price);
+        }
+
+        function showPopup(product, price) {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            const title = document.getElementById('popup-title');
+            const  description = document.getElementById('popup-description');
+            const priceElement = document.getElementById('popup-price');
+
+            title.textContent = product;
+            description.textContent = `This is a high-quality ${product.toLowerCase()} designed for optimal performance. Perfect for both amateur and professional athletes.`;
+            priceElement.textContent = `Price: ${formatPrice(price)}`;
+
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        function addToCart(product) {
+            alert(`${product} has been added to cart!`);
+        }
+        function addToWishlist(product) {
+            alert(`${product} has been added to your wishlist!`);
+        }
+        
+        
+        
+
+        // Format all prices on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const priceElements = document.querySelectorAll('[data-price]');
+            priceElements.forEach(el => {
+                const price = parseFloat(el.getAttribute('data-price'));
+                el.textContent = formatPrice(price);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
